@@ -1,0 +1,20 @@
+名字 ：Jackel 网站 CI
+
+
+
+    分支：[  "tcinto"  ]
+
+    分支：[  "text"  ]
+
+
+
+
+    运行于：ubuntu-latest
+
+输入：
+    - 目的 ：actions/checkout@v4
+    - 名字 ： 在jekyll/builder容器中构建网站
+      运行：|
+        docker run \
+        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site
+        jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"

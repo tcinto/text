@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关爱老人防丢卡编辑器</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .editor-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .card-container {
+            width: 70mm;
+            height: 100mm;
+            border: 1px dashed #ccc;
+            margin: 0 auto;
+            background-color: white;
+            overflow: auto;
+        }
+        .card {
+            width: 70mm;
+            height: 100mm;
+            position: relative;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .card-title {
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .card-info {
+            font-size: 14px;
+            line-height: 1.6;
+            padding: 10px 5px;
+        }
+        .card-info p {
+            margin: 8px 0;
+            display: flex;
+        }
+        .form-container {
+            margin-top: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: inline-block;
+            width: 90px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 200px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .btn-secondary {
+            background-color: #2196F3;
+        }
+        .btn-secondary:hover {
+            background-color: #0b7dda;
+        }
+        .instructions {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #f0f7ff;
+            border-radius: 8px;
+        }
+        .color-options {
+            margin-bottom: 20px;
+        }
+        .color-option {
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            margin-right: 10px;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        .color-option.selected {
+            border-color: #333;
+        }
+		
+		
+		
+h4 {text-align: center;}
+
+    </style>
+</head>
+<body>
+    <h1>关爱老人防丢卡编辑器</h1>
+    
+    <div class="editor-container">
+        <div class="card-container">
+            <div class="card" id="cardPreview">
+<p></p>
+
+                <div class="card-title" id="cardTitle">关爱老人防丢卡</div>
+                <div class="card-info" id="cardInfo">
+                    <p><span id="nameText">姓 名：</span> <span id="nameValue">张三</span></p>
+                    <p><span id="genderText">性 别：</span> <span id="genderValue">男</span></p>
+                    <p><span id="ageText">年 龄：</span> <span id="ageValue">75岁</span></p>
+                    <p><span id="familyPhoneText">家属电话：</span> <span id="familyPhoneValue">13800138000</span></p>
+                    <p><span id="familyNameText">紧急联系人：</span> <span id="familyNameValue">李四（女儿）</span></p>
+                    <p><span id="addressText">家庭地址：</span> <span id="addressValue">海淀中关村大街1号</span></p>
+                    <p><span id="otherInfoText">备注信息：</span> <span id="otherInfoValue">轻微阿尔茨海默症</span></p>
+                    <p></p>
+					<p></p>					
+                </div>
+<DIV style="text-align: center;">
+     <p style="font-size: 12px; color: #a0a0a0;">©中圆天成广告服务中心</p>
+</DIV>	
+            </div>
+        </div>
+<p></p>        
+        <div class="color-options">
+            <span>卡片颜色：</span><p>
+            <div class="color-option selected" style="background-color: #f5f5f5;" data-color="#f5f5f5"></div>
+            <div class="color-option" style="background-color: #e8f5e9;" data-color="#e8f5e9"></div>
+            <div class="color-option" style="background-color: #fff8e1;" data-color="#fff8e1"></div>
+            <div class="color-option" style="background-color: #fce4ec;" data-color="#fce4ec"></div>
+            <div class="color-option" style="background-color: #e3f2fd;" data-color="#e3f2fd"></div></p>
+        </div>
+    </div>
+    
+    <div class="form-container">
+        <div class="form-group">
+            <label for="name">姓 名：</label>
+            <input type="text" id="name" value="张三">
+        </div>
+        <div class="form-group">
+            <label for="gender">性 别：</label>
+            <input type="text" id="gender" value="男">
+        </div>
+        <div class="form-group">
+            <label for="age">年 龄：</label>
+            <input type="text" id="age" value="75岁">
+        </div>
+        <div class="form-group">
+            <label for="familyPhone">家属电话：</label>
+            <input type="text" id="familyPhone" value="13800138000">
+        </div>
+        <div class="form-group">
+            <label for="familyName">联系人：</label>
+            <input type="text" id="familyName" value="李四（女儿）">
+        </div>
+        <div class="form-group">
+            <label for="address">家庭地址：</label>
+            <input type="text" id="address" value="北京海淀中关村大街1号">
+        </div>
+        <div class="form-group">
+            <label for="otherInfo">备注信息：</label>
+            <input type="text" id="otherInfo" value="轻微阿尔茨海默症">
+        </div>
+    </div>
+    
+    <div style="text-align: center; margin: 20px 0;">
+        <button class="btn" id="exportPng">导出为PNG</button>
+        <button class="btn btn-secondary" id="exportJpg">导出为JPG</button>
+    </div>
+    
+    <div class="instructions">
+        <h3>使用说明：</h3>
+        <p>1. 在表单中填写老人的基本信息</p>
+        <p>2. 选择卡片颜色</p>
+        <p>3. 点击"导出为PNG"或"导出为JPG"按钮下载图片</p>
+        <p>4. 打印此卡片让老人随身携带</p>
+        <p>5. 文字数量尽量以模板数量作为参考</p>
+    </div>
+<h4>本程序由中圆天成广告服务中心免费提供</h4>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 更新卡片显示
+            function updateCard() {
+                document.getElementById('nameValue').textContent = document.getElementById('name').value;
+                document.getElementById('genderValue').textContent = document.getElementById('gender').value;
+                document.getElementById('ageValue').textContent = document.getElementById('age').value;
+                document.getElementById('familyPhoneValue').textContent = document.getElementById('familyPhone').value;
+                document.getElementById('familyNameValue').textContent = document.getElementById('familyName').value;
+                document.getElementById('addressValue').textContent = document.getElementById('address').value;
+                document.getElementById('otherInfoValue').textContent = document.getElementById('otherInfo').value;
+            }
+            
+            // 颜色选择器
+            document.querySelectorAll('.color-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    document.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
+                    this.classList.add('selected');
+                    
+                    const preview = document.getElementById('cardPreview');
+                    preview.style.backgroundColor = this.getAttribute('data-color');
+                });
+            });
+            
+            // 绑定表单输入事件
+            document.querySelectorAll('.form-group input').forEach(input => {
+                input.addEventListener('input', updateCard);
+            });
+            
+            // 导出为PNG
+            document.getElementById('exportPng').addEventListener('click', function() {
+            const cardPreview = document.getElementById('cardPreview');
+            html2canvas(cardPreview, {
+                 scale: 300 / 96 // 将96dpi转换为300dpi
+            }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = '关爱老人防丢卡.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+    });
+});
+            
+            // 导出为JPG
+                document.getElementById('exportJpg').addEventListener('click', function() {
+                const cardPreview = document.getElementById('cardPreview');
+                html2canvas(cardPreview, {
+                    scale: 300 / 96 // 300 DPI 相当于 300/96 的 scale（因为 96 是默认的 DPI）
+                }).then(canvas => {
+                    const link = document.createElement('a');
+                    link.download = '关爱老人防丢卡.jpg';
+                    link.href = canvas.toDataURL('image/jpeg');
+                    link.click();
+                });
+            });
+            
+            // 初始化更新
+            updateCard();
+        });
+    </script>
+</body>
+</html>
